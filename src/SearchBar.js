@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
+
+const SearchBar = (props) => {
     
-    const [value, setValue] = useState('')
+    const [term, setTerm] = useState('')
     
     const onInputChange = (e) => {
-        setValue(e.target.value)
+        setTerm(e.target.value)
     }
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        console.log(value)
-
+        console.log(term)
         // todo: call callback
+        props.onFormSubmit(term)
 
     }
 
@@ -26,7 +27,7 @@ const SearchBar = () => {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Search for a video"
-                    value={value}
+                    value={term}
                     onChange={onInputChange}
                 />
             </div>

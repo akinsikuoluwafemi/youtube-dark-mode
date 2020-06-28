@@ -31,7 +31,18 @@ const Header = () => {
                         <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
                     </div>
                     <div class="navbar-nav ml-auto">
-                    <button onClick={() => setDarkmode(prevMode => !prevMode)} >{darkmode ? "dark-mode" : "light-mode"}</button>
+                    {/* <button onClick={() =>  >{darkmode ? "dark-mode" : "light-mode"}</button> */}
+                    <span className="toggle">
+                        <input
+                            checked={darkmode}                            
+                            onChange={() => setDarkmode(prevMode => !prevMode)}
+                            type="checkbox"
+                            className="checkbox"
+                            id="checkbox"
+                        />
+                        <label htmlFor="checkbox"></label>
+                    </span>
+
                     </div>
                 </div>
             </nav>
